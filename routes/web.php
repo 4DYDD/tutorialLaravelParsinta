@@ -2,27 +2,18 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/', 'home');
-Route::view('/about', 'about');
-Route::view('/contact', 'contact');
-
-Route::get('/gallery', fn() => view(
-    'gallery',
-    [
-        'datas' => User::all()
-    ]
-));
+Route::get('/', Controllers\HomeController::class);
+Route::get('/about', Controllers\AboutController::class);
+Route::get('/contact', Controllers\ContactController::class);
+Route::get('/gallery', Controllers\GalleryController::class);
 
 
-// [
-//     ['id' => '1', 'name' => 'John Doe'],
-//     ['id' => '2', 'name' => 'Jane Doe'],
-// ]
 
 
 // home
