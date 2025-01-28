@@ -20,3 +20,6 @@ Route::get('/gallery', Controllers\GalleryController::class);
 // about
 // contact
 // gallery
+
+// $table->string('meta_title')->nullable();
+// $table->dropColumn('meta_title');

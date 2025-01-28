@@ -15,6 +15,12 @@
                 |
 
                 <span>
+                    {{ $data->username }}
+                </span>
+
+                |
+
+                <span>
                     {{ $data->email }}
                 </span>
             </li>
