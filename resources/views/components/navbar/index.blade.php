@@ -18,6 +18,7 @@
                             <x-navbar.nav-link href="about">About</x-navbar.nav-link>
                             <x-navbar.nav-link href="contact">Contact</x-navbar.nav-link>
                             <x-navbar.nav-link href="gallery">Gallery</x-navbar.nav-link>
+                            <x-navbar.nav-link href="users">Users</x-navbar.nav-link>
                         </div>
                     </div>
                 </div>
@@ -117,6 +118,7 @@
                 <x-navbar.dropdown-item href="about">About</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="contact">Contact</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="gallery">Gallery</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="users">Users</x-navbar.dropdown-item>
             </div>
             {{-- LINKNYA --}}
 
