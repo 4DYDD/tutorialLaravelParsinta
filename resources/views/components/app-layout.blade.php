@@ -31,7 +31,7 @@
 
         {{-- HEADER --}}
         @isset($heading)
-            <x-header :arraySamting="['1', '2', '3']" samting="uwaw">
+            <x-header>
                 {{ $heading }}
             </x-header>
         @endisset

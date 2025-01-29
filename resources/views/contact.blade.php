@@ -1,5 +1,5 @@
-<x-app-layout title="contact">
-    <x-slot name="heading">Contact</x-slot>
+<x-app-layout title="Contact">
+    <x-slot:heading>Contact</x-slot:heading>
 
     <div class="">Contact</div>
 </x-app-layout>

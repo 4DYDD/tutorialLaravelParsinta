@@ -4,9 +4,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/', Controllers\HomeController::class);
 Route::get('/about', Controllers\AboutController::class);

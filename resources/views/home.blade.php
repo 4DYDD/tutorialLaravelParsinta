@@ -1,9 +1,11 @@
 <x-app-layout>
-    <x-slot name="heading">Dashboard</x-slot>
+    <x-slot:heading>Dashboard</x-slot:heading>
     <div class="">Home</div>
 
     @isset($title)
-        samting terdeteksi cuy ({{ $title }})
+        <div>
+            samting terdeteksi cuy ({{ $title }})
+        </div>
     @endisset
 
 </x-app-layout>
