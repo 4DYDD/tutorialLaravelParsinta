@@ -4,6 +4,6 @@
         <p class="mt-2 text-sm text-gray-700">{{ $description }}</p>
     </div>
     <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-        <x-button as='a' href='/users/create'>Add User</x-button>
+        {{ $button }}
     </div>
 </div>

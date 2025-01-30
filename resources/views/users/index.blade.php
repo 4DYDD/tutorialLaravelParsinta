@@ -1,54 +1,11 @@
 <x-app-layout title="Users">
     <x-slot:heading>Users</x-slot:heading>
 
-    {{-- <ul>
-        @foreach ($users as $user)
-            <li>
-                <span>
-                    {{ $user->id }}.
-                </span>
-
-                <span>
-                    {{ $user->name }}
-                </span>
-
-                |
-
-                <span>
-                    {{ $user->username }}
-                </span>
-
-                |
-
-                <span>
-                    {{ $user->email }}
-                </span>
-            </li>
-            </li>
-        @endforeach
-    </ul> --}}
-
-    {{-- <table>
-        <thead>
-            <th>#</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Created At</th>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at->format('d M Y') }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table> --}}
-
     <x-section-title>
         <x-slot:title>Users</x-slot:title>
+        <x-slot:button>
+            <x-button as='a' href='/users/create'>Add User</x-button>
+        </x-slot:button>
         <x-slot:description>
             A list of all the users in your account including their name,
             title,
@@ -67,8 +24,8 @@
 
 
         <x-table>
-            <x-table.thead />
-            <x-table.tbody :users="$users" />
+            <x-table.thead page='users' />
+            <x-table.tbody page='users' :users="$users" />
         </x-table>
 
     </div>

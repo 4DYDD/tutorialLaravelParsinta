@@ -12,9 +12,13 @@ Route::get('/', Controllers\HomeController::class);
 Route::get('/about', Controllers\AboutController::class);
 Route::get('/contact', Controllers\ContactController::class);
 Route::get('/gallery', Controllers\GalleryController::class);
-Route::get('/users', Controllers\UserController::class);
 
+Route::get('/articles', Controllers\ArticleController::class);
+
+
+Route::get('/users', Controllers\UserController::class);
 Route::get('/users/create', [Controllers\UserController::class, 'create']);
+Route::post('/users', [Controllers\UserController::class, 'store']);
 
 
 

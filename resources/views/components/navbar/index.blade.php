@@ -1,5 +1,5 @@
 <div>
-    <nav class="bg-gray-800" x-data="{ isOpen: false }">
+    <nav class="fixed z-20 w-full bg-gray-800" x-data="{ isOpen: false }">
 
 
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -18,6 +18,7 @@
                             <x-navbar.nav-link href="/about">About</x-navbar.nav-link>
                             <x-navbar.nav-link href="/contact">Contact</x-navbar.nav-link>
                             <x-navbar.nav-link href="/gallery">Gallery</x-navbar.nav-link>
+                            <x-navbar.nav-link href="/articles">Articles</x-navbar.nav-link>
                             <x-navbar.nav-link href="/users">Users</x-navbar.nav-link>
                         </div>
                     </div>
@@ -49,10 +50,10 @@
 
 
                             {{-- MENU PROFILNYA --}}
-                            <div x-show="isOpen" x-transition:enter="transition ease-out duration-100 transform"
+                            <div x-show="isOpen" x-transition:enter="transition ease-out duration-100 all"
                                 x-transition:enter-start="opacity-0 scale-95"
                                 x-transition:enter-end="opacity-100 scale-100"
-                                x-transition:leave="transition ease-in duration-75 transform"
+                                x-transition:leave="transition ease-in duration-75 all"
                                 x-transition:leave-start="opacity-100 scale-100"
                                 x-transition:leave-end="opacity-0 scale-95"
                                 class="absolute right-0 z-10 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black/5 focus:outline-hidden"
@@ -118,6 +119,7 @@
                 <x-navbar.dropdown-item href="/about">About</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="/contact">Contact</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="/gallery">Gallery</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="/articles">articles</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="/users">Users</x-navbar.dropdown-item>
             </div>
             {{-- LINKNYA --}}
