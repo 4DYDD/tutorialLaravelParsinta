@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __invoke()
     {
-        $users = User::all();
+        $users = User::query()->paginate(5);
         return view('users.index', ['users' => $users]);
 
         // $users = DB::table('users')->get();
@@ -27,5 +27,10 @@ class UserController extends Controller
 
         // return Article::query()->get();
         // return Article::query()->select('title', 'slug')->get();
+    }
+
+    public function create()
+    {
+        return view('users.create');
     }
 }

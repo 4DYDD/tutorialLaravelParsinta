@@ -28,7 +28,7 @@
         @endforeach
     </ul> --}}
 
-    <table>
+    {{-- <table>
         <thead>
             <th>#</th>
             <th>Name</th>
@@ -41,10 +41,35 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    {{-- <td>{{ $user->created_at->format('d M Y' ) }}</td> --}}
-                    <td>{{ $user->created_at->diffForHumans() }}</td>
+                    <td>{{ $user->created_at->format('d M Y') }}</td>
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> --}}
+
+    <x-section-title>
+        <x-slot:title>Users</x-slot:title>
+        <x-slot:description>
+            A list of all the users in your account including their name,
+            title,
+            email and role.
+        </x-slot:description>
+    </x-section-title>
+
+
+    <div class="flow-root mt-8">
+
+
+        {{-- PAGINATION --}}
+        {{ $users->links() }}
+        <br>
+        {{-- PAGINATION --}}
+
+
+        <x-table>
+            <x-table.thead />
+            <x-table.tbody :users="$users" />
+        </x-table>
+
+    </div>
 </x-app-layout>

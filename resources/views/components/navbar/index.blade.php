@@ -15,10 +15,10 @@
                     <div class="hidden md:block">
                         <div class="flex items-baseline ml-10 space-x-4">
                             <x-navbar.nav-link href="/">Home</x-navbar.nav-link>
-                            <x-navbar.nav-link href="about">About</x-navbar.nav-link>
-                            <x-navbar.nav-link href="contact">Contact</x-navbar.nav-link>
-                            <x-navbar.nav-link href="gallery">Gallery</x-navbar.nav-link>
-                            <x-navbar.nav-link href="users">Users</x-navbar.nav-link>
+                            <x-navbar.nav-link href="/about">About</x-navbar.nav-link>
+                            <x-navbar.nav-link href="/contact">Contact</x-navbar.nav-link>
+                            <x-navbar.nav-link href="/gallery">Gallery</x-navbar.nav-link>
+                            <x-navbar.nav-link href="/users">Users</x-navbar.nav-link>
                         </div>
                     </div>
                 </div>
@@ -115,10 +115,10 @@
             {{-- LINKNYA --}}
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <x-navbar.dropdown-item href="/">Home</x-navbar.dropdown-item>
-                <x-navbar.dropdown-item href="about">About</x-navbar.dropdown-item>
-                <x-navbar.dropdown-item href="contact">Contact</x-navbar.dropdown-item>
-                <x-navbar.dropdown-item href="gallery">Gallery</x-navbar.dropdown-item>
-                <x-navbar.dropdown-item href="users">Users</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="/about">About</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="/contact">Contact</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="/gallery">Gallery</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="/users">Users</x-navbar.dropdown-item>
             </div>
             {{-- LINKNYA --}}
 
