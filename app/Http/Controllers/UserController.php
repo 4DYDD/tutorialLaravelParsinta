@@ -34,14 +34,15 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
-        // dd($request->only('name', 'username', 'email', 'password'));
+        $validated = $request->validate([
+            'name' => ['required', 'max:255', 'string'],
+            'username' => ['required', 'string', 'unique:users,username'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['required', 'min:8'],
+        ]);
 
-        try {
-            User::query()->create($request->all());
-            return redirect('/users');
-        } catch (Exception $e) {
-            return redirect('/users');
-        }
+        User::query()->create($validated);
+
+        return redirect('/users');
     }
 }
