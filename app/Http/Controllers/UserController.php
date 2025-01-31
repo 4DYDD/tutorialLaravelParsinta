@@ -19,16 +19,6 @@ class UserController extends Controller
 
     public function create()
     {
-        // $title = 'Halo Gais';
-        // $text = 'jadi somwan ternyata punya sebuah buku yang ingin diberikan kepada somtim, dan ternyata benda yang ingin diberikan itu adalah buku merah yang punya kekuatan sihir, dengan buku itu somtim bisa menjarah planet lain dan menjadi alien jahat seperti adudu dan mengalahkan thanos';
-        // $data = [
-        //     'title' => $title,
-        //     'slug' => str($title)->slug(),
-        //     'teaser' => str($text)->limit(150),
-        //     'body' => $text,
-        // ];
-        // Article::create($data);
-
         return view('users.create');
     }
 
@@ -44,5 +34,11 @@ class UserController extends Controller
         User::query()->create($validated);
 
         return redirect('/users');
+    }
+
+    public function show($user)
+    {
+        $users = User::query()->where('name', $user)->get();
+        return view('users.show', ['users' => $users]);
     }
 }
