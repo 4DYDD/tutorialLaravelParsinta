@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function __invoke()
     {
-        $users = User::query()->latest()->paginate(5);
+        $users = User::latest()->paginate(5);
         return view('users.index', ['users' => $users]);
     }
 
@@ -51,6 +51,13 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $user->update($request->validated());
+
+        return redirect('/users');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
 
         return redirect('/users');
     }

@@ -4,7 +4,7 @@
     <x-section-title>
         <x-slot:title>Users</x-slot:title>
         <x-slot:button>
-            <x-button as='a' href='/users/create'>Add User</x-button>
+            <x-button as='a' color="green" href='/users/create'>Add User</x-button>
         </x-slot:button>
         <x-slot:description>
             A list of all the users in your account including their name,
