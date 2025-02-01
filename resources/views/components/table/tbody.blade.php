@@ -18,13 +18,13 @@
                 </td>
                 <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
 
-                    <x-button href="/users/{{ $user->id }}/show" as='a' color="indigo"
+                    <x-button href="{{ route('users.show', $user->username) }}" as='a' color="indigo"
                         class="inline-block cursor-pointer">Show</x-button>
 
-                    <x-button href="/users/{{ $user->id }}/edit" as='a' color="orange"
+                    <x-button href="{{ route('users.edit', $user->id) }}" as='a' color="orange"
                         class="inline-block cursor-pointer">Edit</x-button>
 
-                    <form class="inline-block" action="/users/{{ $user->id }}" method="post">
+                    <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="post">
                         @method('DELETE')
                         @csrf
                         <x-button color="red" class="inline-block">Delete</x-button>

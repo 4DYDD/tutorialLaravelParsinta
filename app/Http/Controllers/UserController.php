@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
         $users = User::latest()->paginate(5);
         return view('users.index', ['users' => $users]);
@@ -20,7 +21,7 @@ class UserController extends Controller
             'page_meta' => (object) [
                 'title' => 'Create User',
                 'method' => 'POST',
-                'url' => "/users",
+                'url' => route('users.store'),
                 'page' => 'create',
             ]
         ]);
@@ -33,7 +34,7 @@ class UserController extends Controller
             'page_meta' => (object) [
                 'title' => 'Edit User',
                 'method' => 'PUT',
-                'url' => "/users/$user->id",
+                'url' => route('users.update', $user->id),
                 'page' => 'edit',
             ]
         ]);
@@ -44,7 +45,7 @@ class UserController extends Controller
     {
         User::create($request->validated());
 
-        return redirect('/users');
+        return to_route('users.index');
     }
 
 
@@ -52,19 +53,20 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
-        return redirect('/users');
+        return to_route('users.index');
     }
 
     public function destroy(User $user)
     {
         $user->delete();
 
-        return redirect('/users');
+        return to_route('users.index');
     }
 
 
-    public function show(User $user)
+    public function show($text)
     {
+        $user = User::where('username', $text)->first();
         return view('users.show', ['user' => $user]);
     }
 }

@@ -19,7 +19,7 @@
                             <x-navbar.nav-link href="/contact">Contact</x-navbar.nav-link>
                             <x-navbar.nav-link href="/gallery">Gallery</x-navbar.nav-link>
                             <x-navbar.nav-link href="/articles">Articles</x-navbar.nav-link>
-                            <x-navbar.nav-link href="/users">Users</x-navbar.nav-link>
+                            <x-navbar.nav-link href="{{ route('users.index') }}">Users</x-navbar.nav-link>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                 <x-navbar.dropdown-item href="/contact">Contact</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="/gallery">Gallery</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="/articles">articles</x-navbar.dropdown-item>
-                <x-navbar.dropdown-item href="/users">Users</x-navbar.dropdown-item>
+                <x-navbar.dropdown-item href="{{ route('users.index') }}">Users</x-navbar.dropdown-item>
             </div>
             {{-- LINKNYA --}}
 
