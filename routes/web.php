@@ -18,9 +18,12 @@ Route::get('/articles', Controllers\ArticleController::class);
 
 Route::get('/users', Controllers\UserController::class);
 Route::get('/users/create', [Controllers\UserController::class, 'create']);
-Route::post('/users', [Controllers\UserController::class, 'store']);
+Route::get('/users/{user:id}/edit', [Controllers\UserController::class, 'edit']);
 
-Route::get('/users/{user:name}', [Controllers\UserController::class, 'show']);
+Route::post('/users', [Controllers\UserController::class, 'store']);
+Route::put('/users/{user:id}', [Controllers\UserController::class, 'update']);
+
+Route::get('/users/{user:id}', [Controllers\UserController::class, 'show']);
 
 
 

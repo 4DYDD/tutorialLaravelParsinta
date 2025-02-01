@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
-use App\Models\Article;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -19,26 +15,49 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('users.create');
+        return view('users.form', [
+            'user' => new User(),
+            'page_meta' => (object) [
+                'title' => 'Create User',
+                'method' => 'POST',
+                'url' => "/users",
+                'page' => 'create',
+            ]
+        ]);
     }
 
-    public function store(Request $request)
+    public function edit(User $user)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'max:255', 'string'],
-            'username' => ['required', 'string', 'unique:users,username'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'min:8'],
+        return view('users.form', [
+            'user' => $user,
+            'page_meta' => (object) [
+                'title' => 'Edit User',
+                'method' => 'PUT',
+                'url' => "/users/$user->id",
+                'page' => 'edit',
+            ]
         ]);
+    }
 
-        User::query()->create($validated);
+
+    public function store(UserRequest $request)
+    {
+        User::create($request->validated());
 
         return redirect('/users');
     }
 
-    public function show($user)
+
+    public function update(UserRequest $request, User $user)
     {
-        $users = User::query()->where('name', $user)->get();
-        return view('users.show', ['users' => $users]);
+        $user->update($request->validated());
+
+        return redirect('/users');
+    }
+
+
+    public function show(User $user)
+    {
+        return view('users.show', ['user' => $user]);
     }
 }

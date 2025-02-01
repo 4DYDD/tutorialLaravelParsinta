@@ -17,9 +17,7 @@
                     {{ $user->created_at->format('j F Y') }}
                 </td>
                 <td class="relative py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">,
-                            Lindsay
-                            Walton</span></a>
+                    <a href="/users/{{ $user->id }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                 </td>
             </tr>
         @endforeach
