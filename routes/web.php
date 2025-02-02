@@ -4,17 +4,19 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-Route::get('/', Controllers\HomeController::class);
-Route::get('/about', Controllers\AboutController::class);
-Route::get('/contact', Controllers\ContactController::class);
-Route::get('/gallery', Controllers\GalleryController::class);
-Route::get('/articles', Controllers\ArticleController::class);
+Route::get('/', Controllers\HomeController::class)->middleware('auth');
+Route::get('/about', Controllers\AboutController::class)->middleware('auth');
+Route::get('/contact', Controllers\ContactController::class)->middleware('auth');
+Route::get('/gallery', Controllers\GalleryController::class)->middleware('auth');
+Route::get('/articles', Controllers\ArticleController::class)->middleware('auth');
 
-Route::resource('users', Controllers\UserController::class);
+Route::resource('users', Controllers\UserController::class)->middleware('auth');
+
+Route::get('login', [Controllers\LoginController::class, 'loginForm'])->name('login')->middleware('guest');
+Route::post('login', [Controllers\LoginController::class, 'authenticate'])->middleware('guest');
+
+Route::post('logout', Controllers\LogoutController::class)->name('logout')->middleware('auth');
 
 // Route::get('/users', Controllers\UserController::class);
 // Route::get('/users/{user:id}/show', [Controllers\UserController::class, 'show']);
@@ -34,6 +36,3 @@ Route::resource('users', Controllers\UserController::class);
 // about
 // contact
 // gallery
-
-// $table->string('meta_title')->nullable();
-// $table->dropColumn('meta_title');

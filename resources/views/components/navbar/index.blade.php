@@ -20,6 +20,15 @@
                             <x-navbar.nav-link href="/gallery">Gallery</x-navbar.nav-link>
                             <x-navbar.nav-link href="/articles">Articles</x-navbar.nav-link>
                             <x-navbar.nav-link href="{{ route('users.index') }}">Users</x-navbar.nav-link>
+                            @auth
+                                <x-navbar.nav-link href="#">{{ auth()->user()->name }}</x-navbar.nav-link>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <x-button color="red">Logout</x-button>
+                                </form>
+                            @else
+                                <x-navbar.nav-link href="{{ route('login') }}">Login</x-navbar.nav-link>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -121,6 +130,15 @@
                 <x-navbar.dropdown-item href="/gallery">Gallery</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="/articles">articles</x-navbar.dropdown-item>
                 <x-navbar.dropdown-item href="{{ route('users.index') }}">Users</x-navbar.dropdown-item>
+                @auth
+                    <x-navbar.dropdown-item href="#">{{ auth()->user()->name }}</x-navbar.dropdown-item>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <x-button color="red">Logout</x-button>
+                    </form>
+                @else
+                    <x-navbar.dropdown-item href="{{ route('login') }}">Login</x-navbar.dropdown-item>
+                @endauth
             </div>
             {{-- LINKNYA --}}
 
